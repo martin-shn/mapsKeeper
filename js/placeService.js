@@ -260,7 +260,8 @@ function createCenterControl(controlDiv, map) {
                         lng: position.coords.longitude,
                     };
                     infoWindow.setPosition(pos);
-                    infoWindow.setContent(`${gUserPrefs.name}'s location`);
+                    let username = gUserPrefs.userSet ? gUserPrefs.name : 'Your';
+                    infoWindow.setContent(`${username}'s location`);
                     infoWindow.open(map);
                     const marker = new google.maps.Marker({
                         position: pos,
@@ -273,7 +274,7 @@ function createCenterControl(controlDiv, map) {
                         infoWindow.setPosition(marker.position);
                         // infoWindow.setContent('test');
                         infoWindow.open(map, marker);
-                        let username = gUserPrefs.userSet ? gUserPrefs.name : 'Your';
+                        
                         getNewLocation({ lat: event.latLng.lat(), lng: event.latLng.lng() }, `${username}'s location`);
                     });
                     // new google.maps.event.trigger(marker, 'click');

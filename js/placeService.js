@@ -12,7 +12,7 @@ var myModal;
 const EILAT = { lat: 29.55805, lng: 34.94821 };
 
 function initMap() {
-    let userPrefs = _loadUserPrefs();
+    let userPrefs = getUserPrefs();
     changeUserPrefs();
     let timeStr = new Date().getHours() < 12 ? 'Morning' : 'Evening';
 

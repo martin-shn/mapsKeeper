@@ -34,6 +34,10 @@ function changeUserPrefs() {
     });
 }
 
+function getUserPrefs() {
+    return _loadUserPrefs();
+}
+
 function _loadUserPrefs() {
     gUserPrefs = loadFromStorage('userPrefs');
     if (!gUserPrefs) {

@@ -272,7 +272,8 @@ function createCenterControl(controlDiv, map) {
                         infoWindow.setPosition(marker.position);
                         // infoWindow.setContent('test');
                         infoWindow.open(map, marker);
-                        getNewLocation({ lat: event.latLng.lat(), lng: event.latLng.lng() }, `${gUserPrefs.name}'s location`);
+                        let username = gUserPrefs.userSet ? gUserPrefs.name : 'Your';
+                        getNewLocation({ lat: event.latLng.lat(), lng: event.latLng.lng() }, `${username}'s location`);
                     });
                     // new google.maps.event.trigger(marker, 'click');
                     map.setCenter(pos);

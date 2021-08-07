@@ -18,7 +18,7 @@
         <!-- Responsive navbar-->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">Maps Keeper</a>
+                <a class="navbar-brand" href="index.html">Maps Keeper</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -28,7 +28,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Delete all data</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="deleteAllData()">Delete all data</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="#">Logout</a></li>
                             </ul>
@@ -40,43 +40,61 @@
         <!-- Page content-->
         <section class="container">
             <header class="text-center mt-5 mb-5 text-warning">
-                <h1>Lets keep your Preferences</h1>
+                <h1 class="userPrefChangable">Lets keep your Preferences</h1>
             </header>
 
             <main>
                 <form class="prefs">
-                    <div class="mb-3">
-                        <label for="name" class="form-label fw-bold">Your name:</label>
-                        <input id="name" class="form-control w-50" type="text" required autofocus />
+                    <div class="row mb-3">
+                        <label for="name" class="col-sm-2 col-form-label fw-bold">Your name:</label>
+                        <div class="col-sm-10">
+                            <input id="name" class="form-control" type="text" autofocus />
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="theme" class="fw-bold">Text color: </label>
-                        <input id="theme" class="mx-2" type="color" />
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="ml-3 bi bi-question-circle-fill" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="right" title="Color of all text allover the site">
-                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z" />
-                        </svg>
+                    <div class="row mb-3">
+                        <label for="theme" class="col-sm-2 col-form-label fw-bold">Text color: </label>
+                        <div class="col-sm-10">
+                            <input id="theme" class="form-control-lg w-25" type="color" list="presets" />
+                            <datalist id="presets">
+                                <option value="#fff">Black</option>
+                                <option value="#000">White</option>
+                                <option value="#f00">Red</option>
+                                <option value="#0f0">Green</option>
+                                <option value="#00f">Blue</option>
+                                <option value="#f0f">Purple</option>
+                            </datalist>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="ms-3 bi bi-question-circle-fill" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="right" title="Color of all text allover the site">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z" />
+                            </svg>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="dob" class="fw-bold">Your date of birth:</label>
-                        <input id="dob" class="form-control w-50" type="datetime-local" value="1980-01-01T12:00" />
+                    <div class="row mb-3">
+                        <label for="dob" class="col-sm-2 col-form-label fw-bold">Your date of birth:</label>
+                        <div class="col-sm-10">
+                            <input id="dob" class="form-control" type="date" value="1980-01-01" />
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label fw-bold">Your Email address:</label>
-                        <input id="email" class="form-control w-50" type="email" />
+                    <div class="row mb-3">
+                        <label for="email" class="col-sm-2 col-form-label fw-bold">Your Email address:</label>
+                        <div class="col-sm-10">
+                            <input id="email" class="form-control" type="email" />
+                        </div>
                     </div>
-                    <div class="mb-3 w-50">
-                        <label for="range" class="fw-bold">What is your age?</label>
-                        <div class="input-group">
-                            <span class="input-group-text rng">25</span>
-                            <input id="range" class="form-control" type="range" min="18" max="120" step="1" value="25" oninput="onChangeRng(this.value)" />
+                    <div class="row mb-3">
+                        <label for="range" class="col-sm-3 col-form-label fw-bold">What is your age?</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <span class="input-group-text rng">25</span>
+                                <input id="range" class="form-control" type="range" min="18" max="120" step="1" value="25" oninput="onChangeRng(this.value)" />
+                            </div>
                         </div>
                     </div>
                     <div class="mt-5 row">
-                        <div class="col-2">
-                            <button class="btn btn-primary" type="submit">Save</button>
+                        <div class="col-6 text-end">
+                            <button class="btn btn-primary btn-lg" type="submit">Save</button>
                         </div>
-                        <div class="col-6">
-                            <div class="text-warning fs-5 ms-4">All your data is saved!</div>
+                        <div class="col-6 text-start">
+                            <div class="text-warning fs-5 ms-4 saved-msg hidden">All your data is saved!</div>
                         </div>
                     </div>
                 </form>
@@ -92,5 +110,6 @@
         <!-- Core theme JS-->
         <script src="js/storageService.js"></script>
         <script src="js/userPrefService.js"></script>
+        <script src="js/placeService.js"></script>
     </body>
 </html>

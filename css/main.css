@@ -46,9 +46,15 @@ img {
     height: 200px;
 }
 #map {
-    height: 400px;
+    height: 65vh;
     width: 70%;
     border-radius: 4px;
+}
+.h-65vh {
+    height: 65vh;
+}
+.w-60p {
+    width: 60%;
 }
 .w-0 {
     width: 0;
@@ -67,4 +73,31 @@ img {
 }
 .custom-map-control-button:hover {
     background: #ebebeb;
+}
+#infowindow-content {
+    display: none;
+}
+
+#map #infowindow-content {
+    display: inline;
+}
+
+#center-btn {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    margin-bottom: 22px;
+}
+
+#center-btn-img {
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    background-image: url('https://icon-library.com/images/my-location-icon/my-location-icon-22.jpg');
+    background-size: cover;
+    z-index: 1000;
 }
